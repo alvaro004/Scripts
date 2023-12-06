@@ -8,12 +8,10 @@ html_content = "example.html"
 with open(html_content, 'r', encoding='utf-8') as file:
     soup = BeautifulSoup(file, 'html.parser')
 
-# Assuming the course name and date are in div tags with the following classes.
-# Replace 'course-name-class' and 'date-class' with the actual classes from the HTML.
+# Assuming the course name and date are in span tags with the following classes.
 courses = soup.find_all('span', class_='lls-card-headline')
 dates = soup.find_all('span', class_='lls-card-completion-state--completed')
 datesInTxt = [span.get_text(strip=True) for span in dates]
-print(courses)
 
 # Create a list to hold the course details strings
 course_details = []
